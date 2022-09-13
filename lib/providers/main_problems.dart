@@ -85,7 +85,7 @@ class MainProblems with ChangeNotifier {
       MainTip(id: randomID.v4(), text: "לשתף עם מישהי שכן תקבל",),
     ],
     ),
-    MainProblem(id: randomID.v4(), text: "כל החבירות משחקות במשחק מסויים ולי כבר משעמם, בא לי משהו אחר", tips: [
+    MainProblem(id: randomID.v4(), text: "כל החברות משחקות במשחק מסויים ולי כבר משעמם, בא לי משהו אחר", tips: [
       MainTip(id: randomID.v4(), text: "לחפש חבירות שאני בדרך כלל לא מדברת איתן ולפתח שיחה או לשחק ביחד. כך זה גם מרחיב את מעגל החבירות",),
     ],
     ),

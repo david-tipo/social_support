@@ -35,4 +35,13 @@ class DUMMY_DATA {
 
   }
 
+  // TODO: finish this method
+  static String addLines(String text){
+    if (text.length < 40)
+      return text;
+    for (word in text) {
+    }
+
+  }
+
 }

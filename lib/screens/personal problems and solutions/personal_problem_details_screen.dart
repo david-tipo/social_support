@@ -30,12 +30,12 @@ class PersonalProblemDetailsScreen extends StatelessWidget {
         title: Text("תיאור הקושי החברתי"),
         centerTitle: true,
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       floatingActionButton: SizedBox(
         height: ScreenUtil().radius(70),
         width: ScreenUtil().radius(70),
         child: FloatingActionButton(
-          child: Icon(Icons.add, size: ScreenUtil().radius(50).w,),
+          child: Icon(Icons.add, size: ScreenUtil().radius(50),),
           onPressed: () => _pressedAdd(context, personalProblem)
         ),
       ),
@@ -52,7 +52,8 @@ class PersonalProblemDetailsScreen extends StatelessWidget {
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.headline2,
             ),
-            Text(personalProblem.details),
+            SizedBox(height: 15.h,),
+            Text(personalProblem.details, style: TextStyle(fontSize: 16.sp),),
             SizedBox(
               height: 80.h,
             ),

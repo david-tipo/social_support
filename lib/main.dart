@@ -68,7 +68,7 @@ class App extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
                   headline4: TextStyle(
-                    fontSize: 14.sp,
+                    fontSize: 16.sp,
                     color: Colors.black,
                     fontFamily: "SecularOne",
                   ),
