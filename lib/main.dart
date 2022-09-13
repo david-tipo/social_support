@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:social_support/providers/custom_problems.dart';
 import 'package:social_support/providers/personal_problems.dart';
 import 'package:social_support/screens/class_report_screen.dart';
+import 'package:social_support/screens/efrat_screen.dart';
 import 'package:social_support/screens/home_screen.dart';
 import 'package:social_support/screens/login/login_screen.dart';
 import 'package:social_support/screens/personal%20problems%20and%20solutions/personal_problem_details_screen.dart';
@@ -102,6 +103,7 @@ class App extends StatelessWidget {
               CustomProblemsScreen.screenRoute: (_) => CustomProblemsScreen(),
               AddCustomProblemScreen.screenRoute: (_) => AddCustomProblemScreen(),
               CustomTipScreen.screenRoute: (_) => CustomTipScreen(),
+              EfratScreen.screenRoute: (_) => EfratScreen(),
             },
           );
         },
