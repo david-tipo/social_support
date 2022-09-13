@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:social_support/models/main_problem.dart';
-
+import 'package:social_support/dummy_data.dart';
 import '../../widgets/main_tip_item.dart';
 
 class MainTipsScreen extends StatelessWidget {
@@ -34,11 +34,12 @@ class MainTipsScreen extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 15.h),
                 child: FittedBox(
                   child: Text(
-                    problem.text,
+                    DUMMY_DATA.addLines(problem.text),
                     style: Theme.of(context)
                         .textTheme
                         .headline2!
                         .copyWith(fontSize: 32.sp),
+                    textAlign: TextAlign.center,
                   ),
                 ),
               ),

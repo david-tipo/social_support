@@ -35,13 +35,24 @@ class DUMMY_DATA {
 
   }
 
-  // TODO: finish this method
+  /// Gets a String and returns the String with automatic
+  /// line increment \n when needed
   static String addLines(String text){
-    if (text.length < 40)
-      return text;
-    for (word in text) {
-    }
 
+    var sliptedStr = text.split(' ');
+    String newStr = "";
+    int currentRowCount = 0;
+
+    for (int i = 0; i < sliptedStr.length; i++){
+      currentRowCount += sliptedStr[i].length;
+      newStr += sliptedStr[i];
+      if (currentRowCount >= 15){
+        newStr += "\n";
+        currentRowCount = 0;
+      }
+      newStr += " ";
+    }
+    return newStr.trim();
   }
 
 }
