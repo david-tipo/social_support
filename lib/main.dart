@@ -2,10 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:social_support/providers/custom_problems.dart';
+import 'package:social_support/providers/improved_in_provider.dart';
+import 'package:social_support/providers/lessons_info.dart';
 import 'package:social_support/providers/personal_problems.dart';
+import 'package:social_support/providers/takes_for_life_provider.dart';
 import 'package:social_support/screens/class_report_screen.dart';
 import 'package:social_support/screens/efrat_screen.dart';
 import 'package:social_support/screens/home_screen.dart';
+import 'package:social_support/screens/lessons%20(connected)/connected_screen.dart';
+import 'package:social_support/screens/lessons%20(connected)/improvement/add_improvement_screen.dart';
+import 'package:social_support/screens/lessons%20(connected)/improvement/improve_list_screen.dart';
+import 'package:social_support/screens/lessons%20(connected)/improvement/improvement_details_screen.dart';
+import 'package:social_support/screens/lessons%20(connected)/lessons/add_lesson_screen.dart';
+import 'package:social_support/screens/lessons%20(connected)/lessons/lesson_details_screen.dart';
+import 'package:social_support/screens/lessons%20(connected)/lessons/lessons_list_screen.dart';
+import 'package:social_support/screens/lessons%20(connected)/takes%20for%20life/add_take_screen.dart';
+import 'package:social_support/screens/lessons%20(connected)/takes%20for%20life/take_details_screen.dart';
+import 'package:social_support/screens/lessons%20(connected)/takes%20for%20life/takes_list_screen.dart';
 import 'package:social_support/screens/login/login_screen.dart';
 import 'package:social_support/screens/personal%20problems%20and%20solutions/personal_problem_details_screen.dart';
 import 'package:social_support/screens/rate_week_screen.dart';
@@ -37,6 +50,9 @@ class App extends StatelessWidget {
         ChangeNotifierProvider<Auth>(create: (_) => Auth()),
         ChangeNotifierProvider<PersonalProblems>(create: (_) => PersonalProblems()),
         ChangeNotifierProvider<CustomProblems>(create: (_) => CustomProblems()),
+        ChangeNotifierProvider<TakesForLifeProvider>(create: (_) => TakesForLifeProvider()),
+        ChangeNotifierProvider<ImprovedInProvider>(create: (_) => ImprovedInProvider()),
+        ChangeNotifierProvider<LessonsInfo>(create: (_) => LessonsInfo()),
       ],
       child: ScreenUtilInit(
         designSize: const Size(360, 640),
@@ -51,8 +67,8 @@ class App extends StatelessWidget {
               );
             },
             theme: ThemeData(
-              primarySwatch: Colors.green,
-              accentColor: accentColor,
+              primarySwatch: Colors.pink,
+              accentColor: Colors.amber,
               canvasColor: const Color.fromRGBO(255, 254, 229, 1),
               textTheme: ThemeData.light().textTheme.copyWith(
                 headline2: TextStyle(
@@ -72,6 +88,9 @@ class App extends StatelessWidget {
                     color: Colors.black,
                     fontFamily: "SecularOne",
                   ),
+                subtitle1: TextStyle(
+                  fontSize: 16.sp,
+                ),
 
               ),
               buttonTheme: ButtonTheme.of(context).copyWith(
@@ -104,6 +123,16 @@ class App extends StatelessWidget {
               AddCustomProblemScreen.screenRoute: (_) => AddCustomProblemScreen(),
               CustomTipScreen.screenRoute: (_) => CustomTipScreen(),
               EfratScreen.screenRoute: (_) => EfratScreen(),
+              ConnectedScreen.screenRoute: (_) => ConnectedScreen(),
+              LessonsListScreen.screenRoute: (_) => LessonsListScreen(),
+              ImproveListScreen.screenRoute: (_) => const ImproveListScreen(),
+              TakesListScreen.screenRoute: (_) => const TakesListScreen(),
+              AddImprovementScreen.screenRoute: (_) => AddImprovementScreen(),
+              AddLessonScreen.screenRoute: (_) => AddLessonScreen(),
+              AddTakeScreen.screenRoute: (_) => AddTakeScreen(),
+              TakeDetailsScreen.screenRoute: (_) => const TakeDetailsScreen(),
+              LessonDetailsScreen.screenRoute: (_) => const LessonDetailsScreen(),
+              ImprovementDetailsScreen.screenRoute: (_) => const ImprovementDetailsScreen(),
             },
           );
         },

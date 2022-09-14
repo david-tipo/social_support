@@ -22,6 +22,7 @@ class _RateWeekScreenState extends State<RateWeekScreen> {
         ),
         centerTitle: true,
       ),
+
       body: Padding(
         padding: EdgeInsets.symmetric(vertical: 15.h, horizontal: 35.w),
         child: SingleChildScrollView(
@@ -35,6 +36,12 @@ class _RateWeekScreenState extends State<RateWeekScreen> {
                     .headline2!
                     .copyWith(letterSpacing: 0.6),
               ),
+              SizedBox(height: 5.h,),
+              Text("הנתונים יהיו גלויים רק למורה שלך", style: Theme
+                  .of(context)
+                  .textTheme
+                  .headline4,
+                textAlign: TextAlign.center,),
               SizedBox(
                 height: 30.h,
               ),

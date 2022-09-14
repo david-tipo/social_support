@@ -33,7 +33,7 @@ class PageCategoryItem extends StatelessWidget {
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(ScreenUtil().radius(15)),
         ),
         child: Text(text, style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold), textAlign: TextAlign.center,),
       ),

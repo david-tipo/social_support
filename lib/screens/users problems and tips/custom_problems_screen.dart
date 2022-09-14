@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../../models/main_problem.dart';
 import '../../providers/custom_problems.dart';
+import '../../widgets/adaptive_floating_button.dart';
 import '../../widgets/main_problem_item.dart';
 import 'custom_tips_screen.dart';
 import 'add_custom_problem_screen.dart';
@@ -19,16 +20,10 @@ class CustomProblemsScreen extends StatelessWidget {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       appBar: AppBar(title: Text("בעיות וטיפים מהשטח"), centerTitle: true,),
-      floatingActionButton: SizedBox(
-        height: ScreenUtil().radius(70),
-        width: ScreenUtil().radius(70),
-        child: FloatingActionButton(
-          child: Icon(Icons.add, size: ScreenUtil().radius(50),),
-          onPressed: () {
-            Navigator.of(context).pushNamed(AddCustomProblemScreen.screenRoute);
-          },
-
-        ),
+      floatingActionButton: AdaptiveFloatingButton(onPressed: () {
+        Navigator.of(context).pushNamed(AddCustomProblemScreen.screenRoute);
+      },
+        icon: Icons.add
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 35.w),

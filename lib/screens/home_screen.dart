@@ -27,7 +27,7 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           children: [
             Text(
-              """ברוכה הבאה,
+              """ברוכה הבאה, ${auth.username}
 איזה כיף ש'התחברת' איתנו!
 הקליקי במקום המתאים""",
               textAlign: TextAlign.center,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:social_support/screens/personal%20problems%20and%20solutions/add_problem_page.dart';
 import 'package:social_support/screens/personal%20problems%20and%20solutions/problems_page.dart';
 
@@ -35,24 +36,29 @@ class _PersonalProblemsScreenState extends State<PersonalProblemsScreen> {
         title: Text(
           _pagesData[_selectedIndex]["title"],
         ),
+        centerTitle: true,
       ),
       body: _pagesData[_selectedIndex]['page'],
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: _selectPage,
-        currentIndex: _selectedIndex,
-        backgroundColor: Theme.of(context).accentColor,
-        selectedItemColor: Theme.of(context).primaryColor,
-        unselectedItemColor: Colors.white,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.category),
-            label: "שיתוף קושי",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.tune),
-            label: "קשיים של תלמידים"
-          ),
-        ],
+      bottomNavigationBar: SizedBox(
+        height: 60.h,
+        child: BottomNavigationBar(
+          onTap: _selectPage,
+          currentIndex: _selectedIndex,
+          backgroundColor: Theme.of(context).accentColor,
+          selectedItemColor: Colors.pink[700],
+          unselectedItemColor: Colors.black,
+
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.category),
+              label: "שיתוף קושי",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.tune),
+              label: "קשיים של תלמידים"
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -15,6 +15,10 @@ class AddProblemPage extends StatelessWidget {
   String _body = "";
 
   void _submitForm(BuildContext context) {
+    bool isValid = _form.currentState!.validate();
+    if (!isValid){
+      return;
+    }
     _form.currentState!.save();
     PersonalProblems personalProblems = Provider.of<PersonalProblems>(
         context, listen: false);
@@ -24,6 +28,15 @@ class AddProblemPage extends StatelessWidget {
     Navigator.of(context).pop();
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("הקושי נוסף בהצלחה!")));
     print("added problems!!");
+  }
+
+  String? _myValidator(String? value) {
+    if (value == null || value.isEmpty){
+      return "אנא הזן ערך";
+    }
+    if (value.length < 5){
+      return "ערך קצר מדי, אנא פרט/י יותר";
+    }
   }
 
   @override
@@ -37,11 +50,17 @@ class AddProblemPage extends StatelessWidget {
           child: Column(
             children: [
               const SizedBox(width: double.infinity,), // to center all column
-              Text("שיתוף בקושי חברתי אישי", style: Theme
+              Text("שיתוף קושי-חברתי אישי", style: Theme
                   .of(context)
                   .textTheme
                   .headline2,
               textAlign: TextAlign.center,),
+              SizedBox(height: 5.h,),
+              Text("הקושי יהיה גלוי לשאר המשתמשים", style: Theme
+                  .of(context)
+                  .textTheme
+                  .headline4,
+                textAlign: TextAlign.center,),
               SizedBox(height: 35.h,),
               Text("כותרת", style: Theme
                   .of(context)
@@ -49,6 +68,7 @@ class AddProblemPage extends StatelessWidget {
                   .headline3,),
               SizedBox(height: 14.h,),
               TextFormField(
+                validator: _myValidator,
                 onSaved: (String? value) {
                   _title = value!;
                 },
@@ -64,6 +84,7 @@ class AddProblemPage extends StatelessWidget {
                 onSaved: (String? value) {
                   _body = value!;
                 },
+                validator: _myValidator,
               ),
               SizedBox(height: 45.h),
               ElevatedButton(onPressed: () => _submitForm(context), child: Container(

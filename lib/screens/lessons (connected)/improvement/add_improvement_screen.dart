@@ -1,35 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:social_support/models/main_problem.dart';
-import 'package:social_support/models/main_tip.dart';
-import '../../providers/custom_problems.dart';
-import 'package:uuid/uuid.dart';
+import 'package:social_support/models/improved_in.dart';
 
-const randomID = Uuid();
+import '../../../providers/auth.dart';
+import '../../../providers/improved_in_provider.dart';
 
+class AddImprovementScreen extends StatelessWidget {
 
-class AddCustomProblemScreen extends StatelessWidget {
-  static const String screenRoute = "/add-custom-problem-screen";
+  static const String screenRoute = "/add-improvement-screen";
 
   final GlobalKey<FormState> _form = GlobalKey<FormState>();
-
-  String _problemText = "";
-  String _tipText = "";
-
-  void _submitForm(BuildContext context){
-    bool isValid = _form.currentState!.validate();
-    if (!isValid){
-      return;
-    }
-    _form.currentState!.save();
-    CustomProblems customProblems = Provider.of<CustomProblems>(context, listen: false);
-    MainTip newTip = MainTip(id: randomID.v4(), text: _tipText);
-    MainProblem newProblem = MainProblem(id: randomID.v4(), text: _problemText, tips: [newTip]);
-    customProblems.addProblem(newProblem);
-    Navigator.of(context).pop();
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("הטיפ נוסף בהצלחה! תודה רבה!")));
-  }
+  String _title = "";
+  String _body = "";
 
   String? _myValidator(String? value) {
     if (value == null || value.isEmpty){
@@ -40,11 +23,27 @@ class AddCustomProblemScreen extends StatelessWidget {
     }
   }
 
+  void _submitForm(BuildContext context) {
+    bool isValid = _form.currentState!.validate();
+    if (!isValid){
+      return;
+    }
+    _form.currentState!.save();
+    ImprovedInProvider improvedInProvider = Provider.of<ImprovedInProvider>(context, listen: false);
+    Auth auth = Provider.of<Auth>(context, listen: false);
+
+    ImprovedIn newImprovement = ImprovedIn(title: _title, username: auth.username!, details: _body);
+    improvedInProvider.addItem(newImprovement);
+    print("added improvement!");
+    Navigator.of(context).pop();
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("השיפור האישי נוסף בהצלחה!")));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("הוספת טיפ"),
+        title: Text("הוספת שיפור אישי"),
         centerTitle: true,
       ),
       body: Padding(
@@ -54,30 +53,25 @@ class AddCustomProblemScreen extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                SizedBox(
-                  height: 20.h,
-                ),
-                Text(
-                  "הוסיפי קושי חברתי וטיפים",
-                  style: Theme.of(context).textTheme.headline2,
-                ),
+                SizedBox(height: 28.h, width: double.infinity,),
+                Text("במה השתפרנו בזכות שיעורי 'התחברתי'?", style: Theme.of(context).textTheme.headline2, textAlign: TextAlign.center,),
                 SizedBox(height: 40.h),
                 Text(
-                  "קושי חברתי:",
-                  style: Theme.of(context).textTheme.headline2,
+                  "כותרת:",
+                  style: Theme.of(context).textTheme.headline3,
                 ),
                 SizedBox(height: 10.h),
                 TextFormField(
                   maxLength: 100,
                   validator: _myValidator,
                   onSaved: (String? value) {
-                    _problemText = value!.trim();
+                    _title = value!.trim();
                   },
                 ),
                 SizedBox(height: 42.h),
                 Text(
-                  "טיפ / דרך התמודדות:",
-                  style: Theme.of(context).textTheme.headline2,
+                  "תוכן השיפור:",
+                  style: Theme.of(context).textTheme.headline3,
                 ),
                 SizedBox(height: 10.h),
                 TextFormField(
@@ -85,11 +79,12 @@ class AddCustomProblemScreen extends StatelessWidget {
                   maxLength: 300,
                   validator: _myValidator,
                   onSaved: (String? value) {
-                    _tipText = value!.trim();
+                    _body = value!.trim();
                   },
                 ),
                 SizedBox(height: 50.h),
                 ElevatedButton(onPressed: () => _submitForm(context), child: Text("שליחה"))
+                ,SizedBox(height: 20.h),
 
               ],
             ),

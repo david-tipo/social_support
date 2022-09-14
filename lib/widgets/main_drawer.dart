@@ -12,7 +12,7 @@ class MainDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     Auth auth = Provider.of<Auth>(context);
     return Drawer(
-      backgroundColor: Theme.of(context).accentColor,
+      backgroundColor: Theme.of(context).canvasColor,
       child: Column(
         children: [
           Container(
@@ -25,7 +25,7 @@ class MainDrawer extends StatelessWidget {
             height: 20.h,
           ),
           _buildListTile(context, "דף הבית", Theme.of(context).primaryColor, Icons.home, () {}),
-          _buildListTile(context, "התנתקות", Colors.white, Icons.logout, () {
+          _buildListTile(context, "התנתקות", Colors.black, Icons.logout, () {
             print("logout");
             auth.logout();
             Navigator.popUntil(context, ModalRoute.withName(HomeScreen.routeName));
