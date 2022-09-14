@@ -65,6 +65,9 @@ class EfratScreen extends StatelessWidget {
               SizedBox(
                 height: 40.h,
               ),
+              Image.asset("assets/efrat.png"),SizedBox(
+                height: 20.h,
+              ),
               Text(
                 "עמוד אפר\"ת מאפשר לבחון את\nהחוויה מחדש ולהרגיש טוב יותר"
                 , style: Theme.of(context).textTheme.headline3,
@@ -127,6 +130,7 @@ class EfratScreen extends StatelessWidget {
                     _skipPress(context);
                   },
                   child: Text("בכל זאת אני צריכה טיפ", style: Theme.of(context).textTheme.headline4!.copyWith(color: Colors.blue)), )
+            ,SizedBox(height: 20.h,),
             ],
           ),
         ),

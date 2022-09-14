@@ -40,7 +40,7 @@ class CustomProblemsScreen extends StatelessWidget {
             Expanded(
               child: GridView(
                 gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                  maxCrossAxisExtent: (100 + 35.w),
+                  maxCrossAxisExtent: (80 + 55.w),
                   childAspectRatio: 3/2,
                   mainAxisSpacing: 24.h,
                   crossAxisSpacing: 20.w,

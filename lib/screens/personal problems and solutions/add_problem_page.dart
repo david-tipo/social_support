@@ -42,15 +42,15 @@ class AddProblemPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 28.h, horizontal: 50.w
+      padding: EdgeInsets.symmetric(horizontal: 50.w
       ),
       child: Form(
         key: _form,
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const SizedBox(width: double.infinity,), // to center all column
-              Text("שיתוף קושי-חברתי אישי", style: Theme
+              SizedBox(height: 28.h, width: double.infinity,), // to center all column
+              Text("שיתוף קושי אישי", style: Theme
                   .of(context)
                   .textTheme
                   .headline2,

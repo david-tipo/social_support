@@ -47,7 +47,7 @@ class _RateWeekScreenState extends State<RateWeekScreen> {
               ),
               Card(
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(40)),
+                    borderRadius: BorderRadius.circular(15)),
                 child: Container(
                   height: 148.h,
                   width: 290.w,

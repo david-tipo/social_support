@@ -64,7 +64,7 @@ class LessonDetailsScreen extends StatelessWidget {
                 SizedBox(
                   height: 10.h,
                 ),
-                Image.network(lesson.imageUrl!)
+                Image.asset(lesson.imageUrl!)
               ]
             ],
           ),

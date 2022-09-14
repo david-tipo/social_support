@@ -50,11 +50,11 @@ class _PersonalProblemsScreenState extends State<PersonalProblemsScreen> {
 
           items: const [
             BottomNavigationBarItem(
-              icon: Icon(Icons.category),
+              icon: Icon(Icons.list_alt),
               label: "שיתוף קושי",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.tune),
+              icon: Icon(Icons.people),
               label: "קשיים של תלמידים"
             ),
           ],

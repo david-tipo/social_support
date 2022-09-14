@@ -108,7 +108,7 @@ class ConnectedScreen extends StatelessWidget {
             SizedBox(
                 height: 35.h
             ),
-            _startBuilder(context, "תיעוד\nמהשיעור", Colors.red, LessonsListScreen.screenRoute),
+            _startBuilder(context, "תיעוד\nמהשיעור", Colors.green, LessonsListScreen.screenRoute),
             SizedBox(
                 height: 35.h
             ),

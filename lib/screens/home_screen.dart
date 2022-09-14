@@ -34,7 +34,7 @@ class HomeScreen extends StatelessWidget {
               style: Theme.of(context)
                   .textTheme
                   .headline2!
-                  .copyWith(letterSpacing: 0.6),
+                  .copyWith(letterSpacing: 0.2),
             ),
             SizedBox(
               height: 30.h,
@@ -44,7 +44,7 @@ class HomeScreen extends StatelessWidget {
                 padding: EdgeInsets.symmetric(),
                 child: GridView(
                   gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                    maxCrossAxisExtent: 135.w,
+                    maxCrossAxisExtent: (80 + 55.w),
                     childAspectRatio: 3 / 2,
                     crossAxisSpacing: 20.w,
                     mainAxisSpacing: 24.h,

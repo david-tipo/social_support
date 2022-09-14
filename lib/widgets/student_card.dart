@@ -16,13 +16,16 @@ class StudentCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
-        title: Text(
-          name,
-          style: Theme.of(context).textTheme.headline2,
+        title: Center(
+          child: Text(
+            name,
+            style: Theme.of(context).textTheme.headline2,
+          ),
         ),
         onTap: () {
           Navigator.of(context).pushNamed(StudentReportScreen.screenRoute, arguments: name);
         },
+        trailing: Icon(Icons.pie_chart, color: Theme.of(context).primaryColor,),
       ),
 
     );

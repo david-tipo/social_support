@@ -38,6 +38,57 @@ class Auth with ChangeNotifier {
         mostUsedTips: ["להתרחק, לשתף מבוגר"], weekRate: 8,
       ),
     },
+    {
+      "username": "אפרת",
+      "password": "1234",
+      "isTeacher": false,
+      "report": StudentReport(
+        enterAmount: 21,
+        mostUsedProblems: ["נעלבתי מחברה , מכעיסים אותי"],
+        mostUsedTips: ["להסביר שזה לא יפה, לשתף מבוגר"], weekRate: 9,
+      ),
+    },
+    {
+      "username": "נעמי",
+      "password": "1234",
+      "isTeacher": false,
+      "report": StudentReport(
+        enterAmount: 46,
+        mostUsedProblems: ["לא רוצים לשחק איתי , בדידות אחר הצהריים"],
+        mostUsedTips: ["לשתף את המורה וההורים, לחפש חברה בודדה ולשחק איתה"], weekRate: 7,
+      ),
+    },
+    {
+      "username": "עדן",
+      "password": "1234",
+      "isTeacher": false,
+      "report": StudentReport(
+        enterAmount: 32,
+        mostUsedProblems: ["לא רוצים לשחק איתי , מילים לא יפות"],
+        mostUsedTips: ["לנהל שיח מיטבי, להצטרף לקבוצת נוער"], weekRate: 8,
+      ),
+    },
+    {
+      "username": "מרים",
+      "password": "1234",
+      "isTeacher": false,
+      "report": StudentReport(
+        enterAmount: 42,
+        mostUsedProblems: ["לא רוצים לשחק איתי , החרימו אותי"],
+        mostUsedTips: ["לדבר ולשתף, להסביר שזה לא יפה"], weekRate: 6,
+      ),
+    },
+    {
+      "username": "נועה",
+      "password": "1234",
+      "isTeacher": false,
+      "report": StudentReport(
+        enterAmount: 23,
+        mostUsedProblems: ["ילדה מכיתה גבוהה הציקה לי , מכעיסים אותי"],
+        mostUsedTips: ["להתרחק מהמקום, לדמיין מקום מרגיע"], weekRate: 7,
+      ),
+    },
+
 
   ];
 
@@ -92,7 +143,5 @@ class Auth with ChangeNotifier {
   Map<String, dynamic> getByUsername(String username) {
     return users.where((Map<String, dynamic> user) => user["username"] == username).first;
   }
-
-
 
 }

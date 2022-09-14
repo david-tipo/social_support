@@ -20,98 +20,104 @@ class StudentReportScreen extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(
-              width: double.infinity,
-            ),
-            SizedBox(
-              height: 15.h,
-            ),
-            Text(
-              "שם:",
-              style: Theme.of(context).textTheme.headline2,
-            ),
-            SizedBox(
-              height: 6.h,
-            ),
-            Text(
-              username,
-              style: Theme.of(context)
-                  .textTheme
-                  .headline2!
-                  .copyWith(color: Theme.of(context).primaryColor),
-            ),
-            SizedBox(
-              height: 35.h,
-            ),
-            Text(
-              "מספר כניסות:",
-              style: Theme.of(context).textTheme.headline2,
-            ),
-            SizedBox(
-              height: 6.h,
-            ),
-            Text(
-              studentReport.enterAmount.toString(),
-              style: Theme.of(context)
-                  .textTheme
-                  .headline2!
-                  .copyWith(color: Theme.of(context).primaryColor),
-            ),
-            SizedBox(
-              height: 35.h,
-            ),
-            Text(
-              "הקשיים איתם מתמודד:",
-              style: Theme.of(context).textTheme.headline2,
-            ),
-            SizedBox(
-              height: 6.h,
-            ),
-            Text(
-              studentReport.stringProblems,
-              style: Theme.of(context)
-                  .textTheme
-                  .headline2!
-                  .copyWith(color: Theme.of(context).primaryColor),
-            ),
-            SizedBox(
-              height: 35.h,
-            ),
-            Text(
-              "הטיפים בו השתמש:",
-              style: Theme.of(context).textTheme.headline2,
-            ),
-            SizedBox(
-              height: 6.h,
-            ),
-            Text(
-              studentReport.stringTips,
-              style: Theme.of(context)
-                  .textTheme
-                  .headline2!
-                  .copyWith(color: Theme.of(context).primaryColor),
-            ),
-            SizedBox(
-              height: 35.h,
-            ),
-            Text(
-              "מצב חברתי השבוע:",
-              style: Theme.of(context).textTheme.headline2,
-            ),
-            SizedBox(
-              height: 6.h,
-            ),
-            Text(
-              studentReport.weekRate.toString(),
-              style: Theme.of(context)
-                  .textTheme
-                  .headline2!
-                  .copyWith(color: Theme.of(context).primaryColor),
-            ),
-          ],
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 20.w),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(
+                width: double.infinity,
+              ),
+              SizedBox(
+                height: 15.h,
+              ),
+              Text(
+                "שם:",
+                style: Theme.of(context).textTheme.headline2,
+              ),
+              SizedBox(
+                height: 6.h,
+              ),
+              Text(
+                username,
+                style: Theme.of(context)
+                    .textTheme
+                    .headline2!
+                    .copyWith(color: Theme.of(context).primaryColor),
+              ),
+              SizedBox(
+                height: 35.h,
+              ),
+              Text(
+                "מספר כניסות:",
+                style: Theme.of(context).textTheme.headline2,
+              ),
+              SizedBox(
+                height: 6.h,
+              ),
+              Text(
+                studentReport.enterAmount.toString(),
+                style: Theme.of(context)
+                    .textTheme
+                    .headline2!
+                    .copyWith(color: Theme.of(context).primaryColor),
+              ),
+              SizedBox(
+                height: 35.h,
+              ),
+              Text(
+                "הקשיים איתם מתמודד:",
+                style: Theme.of(context).textTheme.headline2,
+              ),
+              SizedBox(
+                height: 6.h,
+              ),
+              Text(
+                studentReport.stringProblems,
+                textAlign: TextAlign.center,
+                style: Theme.of(context)
+                    .textTheme
+                    .headline2!
+                    .copyWith(color: Theme.of(context).primaryColor),
+              ),
+              SizedBox(
+                height: 35.h,
+              ),
+              Text(
+                "הטיפים בו השתמש:",
+                style: Theme.of(context).textTheme.headline2,
+              ),
+              SizedBox(
+                height: 6.h,
+              ),
+              Text(
+                studentReport.stringTips,
+                textAlign: TextAlign.center,
+                style: Theme.of(context)
+                    .textTheme
+                    .headline2!
+                    .copyWith(color: Theme.of(context).primaryColor),
+              ),
+              SizedBox(
+                height: 35.h,
+              ),
+              Text(
+                "מצב חברתי השבוע:",
+                style: Theme.of(context).textTheme.headline2,
+              ),
+              SizedBox(
+                height: 6.h,
+              ),
+              Text(
+                studentReport.weekRate.toString(),
+                style: Theme.of(context)
+                    .textTheme
+                    .headline2!
+                    .copyWith(color: Theme.of(context).primaryColor),
+              ),
+              SizedBox(height: 30.h)
+            ],
+          ),
         ),
       ),
     );

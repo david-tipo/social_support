@@ -108,7 +108,7 @@ class LoginScreen extends StatelessWidget {
                       SizedBox(
                         height: 60.h,
                       ),
-                      FlatButton(
+                      ElevatedButton(
                         onPressed: () {
                           _submitLogin(context);
                         },
@@ -117,12 +117,23 @@ class LoginScreen extends StatelessWidget {
                           style: Theme
                               .of(context)
                               .textTheme
-                              .headline4,
+                              .headline4!.copyWith(color: Colors.white),
 
                         ),
-
-
-                      )
+                      ),
+                      // TextButton(
+                      //   onPressed: () {
+                      //     _submitLogin(context);
+                      //   },
+                      //   child: Text(
+                      //     "אפס נתונים",
+                      //     style: Theme
+                      //         .of(context)
+                      //         .textTheme
+                      //         .headline4!.copyWith(color: Theme.of(context).primaryColor),
+                      //
+                      //   ),
+                      // )
                     ],
                   ),
                 ),
