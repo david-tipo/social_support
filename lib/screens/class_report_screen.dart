@@ -1,9 +1,26 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
+import 'package:charts_flutter/flutter.dart';
+import 'package:charts_flutter/flutter.dart' as charts;
+import 'package:provider/provider.dart';
+
+import '../providers/auth.dart';
 
 class ClassReportScreen extends StatelessWidget {
-
   static const String screenRoute = "/class-report-screen";
+
+  List<Series<int, String>> series(BuildContext context) {
+    Auth auth = Provider.of<Auth>(context, listen: false);
+    return [
+      Series(
+          id: "rating",
+          data: [10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
+          domainFn: (int number, _) => number.toString(),
+          measureFn: (int number, _) => auth.numOfStudentsByRate(number),
+          colorFn: (int number, _) =>
+              charts.ColorUtil.fromDartColor(Colors.pink)),
+    ];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +36,10 @@ class ClassReportScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(height: 20.h, width: double.infinity,),
+              SizedBox(
+                height: 20.h,
+                width: double.infinity,
+              ),
               Text(
                 "סה”כ כניסות תלמידים:",
                 style: Theme.of(context).textTheme.headline2,
@@ -79,8 +99,15 @@ class ClassReportScreen extends StatelessWidget {
               SizedBox(
                 height: 6.h,
               ),
-
-
+              Container(
+                height: 200.h + 50,
+                width: 300.w,
+                child: BarChart(
+                  series(context),
+                  animate: true,
+                ),
+              ),
+              SizedBox(height: 40.h,)
             ],
           ),
         ),

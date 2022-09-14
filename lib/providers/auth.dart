@@ -35,7 +35,7 @@ class Auth with ChangeNotifier {
       "report": StudentReport(
         enterAmount: 18,
         mostUsedProblems: ["מעליבים אותי, רבים איתי"],
-        mostUsedTips: ["להתרחק, לשתף מבוגר"], weekRate: 8,
+        mostUsedTips: ["להתרחק, לשתף מבוגר"], weekRate: 7,
       ),
     },
     {
@@ -55,7 +55,8 @@ class Auth with ChangeNotifier {
       "report": StudentReport(
         enterAmount: 46,
         mostUsedProblems: ["לא רוצים לשחק איתי , בדידות אחר הצהריים"],
-        mostUsedTips: ["לשתף את המורה וההורים, לחפש חברה בודדה ולשחק איתה"], weekRate: 7,
+        mostUsedTips: ["לשתף את המורה וההורים, לחפש חברה בודדה ולשחק איתה"],
+        weekRate: 6,
       ),
     },
     {
@@ -75,7 +76,7 @@ class Auth with ChangeNotifier {
       "report": StudentReport(
         enterAmount: 42,
         mostUsedProblems: ["לא רוצים לשחק איתי , החרימו אותי"],
-        mostUsedTips: ["לדבר ולשתף, להסביר שזה לא יפה"], weekRate: 6,
+        mostUsedTips: ["לדבר ולשתף, להסביר שזה לא יפה"], weekRate: 4,
       ),
     },
     {
@@ -101,8 +102,10 @@ class Auth with ChangeNotifier {
       print("שם משתמש שגוייה");
       return false;
     }
-    Map<String, dynamic> currUser = users.where((Map<String, dynamic> user) => user["username"] == username).first;
-    if (currUser["password"] != password){ // worng password
+    Map<String, dynamic> currUser = users
+        .where((Map<String, dynamic> user) => user["username"] == username)
+        .first;
+    if (currUser["password"] != password) { // worng password
       print("סיסמא שגוייה");
       return false;
     }
@@ -116,8 +119,8 @@ class Auth with ChangeNotifier {
 
   /// gets a String username and returns true if he is in users
   bool doesExist(String username) {
-    for (Map<String, dynamic> user in users){
-      if (user["username"] == username){
+    for (Map<String, dynamic> user in users) {
+      if (user["username"] == username) {
         return true;
       }
     }
@@ -134,14 +137,28 @@ class Auth with ChangeNotifier {
   /// returns a list of only students, not teachers
   /// each student is Map<String, dynamic>
   List<Map<String, dynamic>> get students {
-    var students = users.where((Map<String, dynamic> user) => !user["isTeacher"]);
+    var students = users.where((
+        Map<String, dynamic> user) => !user["isTeacher"]);
     return students.toList();
   }
 
 
   /// returns user by thier username
   Map<String, dynamic> getByUsername(String username) {
-    return users.where((Map<String, dynamic> user) => user["username"] == username).first;
+    return users
+        .where((Map<String, dynamic> user) => user["username"] == username)
+        .first;
+  }
+
+  /// gets a int rating and returns the amount of students that has that rating
+  int numOfStudentsByRate(int rating) {
+    int count = 0;
+    students.forEach((Map<String, dynamic> student) {
+      int currRate = (student["report"] as StudentReport).weekRate;
+      if (currRate == rating)
+        count ++;
+    });
+    return count;
   }
 
 }
