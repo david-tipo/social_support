@@ -26,15 +26,43 @@ class HomeScreen extends StatelessWidget {
         padding: EdgeInsets.symmetric(vertical: 15.h, horizontal: 35.w),
         child: Column(
           children: [
-            Text(
-              """ברוכה הבאה, ${auth.username}
-איזה כיף ש'התחברת' איתנו!
-הקליקי במקום המתאים""",
+
+            RichText(
               textAlign: TextAlign.center,
-              style: Theme.of(context)
-                  .textTheme
-                  .headline2!
-                  .copyWith(letterSpacing: 0.2),
+              text: TextSpan(
+                style: Theme.of(context)
+                    .textTheme
+                    .headline2!
+                    .copyWith(letterSpacing: 0.2),
+                children: <TextSpan>[
+                  TextSpan(
+                    text: "ברוכה הבאה "
+                  ),
+                  TextSpan(text: auth.username.toString(), style: Theme.of(context)
+                      .textTheme
+                      .headline2!
+                      .copyWith(letterSpacing: 0.2,
+                  color: Theme.of(context).primaryColor),),
+                  TextSpan(
+                      text:  "\nאיזה כיף ש'הת"
+                  ),
+                  TextSpan(
+                    text: "חבר",
+                    style: Theme.of(context)
+                        .textTheme
+                        .headline2!
+                        .copyWith(letterSpacing: 0.2,
+                        color: Theme.of(context).primaryColor),
+                  ),
+                  TextSpan(
+                    text: "ת' איתנו!\nהקליקי במקום המתאים"
+                  )
+                ],
+
+
+              ),
+
+
             ),
             SizedBox(
               height: 30.h,

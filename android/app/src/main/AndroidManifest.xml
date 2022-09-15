@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.social_support">
    <application
-        android:label="social_support"
+        android:label="מיזם התחברתי"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
