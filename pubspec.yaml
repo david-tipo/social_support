@@ -69,6 +69,7 @@ flutter:
     - assets/efrat.png
     - assets/logo.png
     - assets/orot.jpg
+    - assets/class2.jpg
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
