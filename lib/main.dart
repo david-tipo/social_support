@@ -20,6 +20,7 @@ import 'package:social_support/screens/lessons%20(connected)/takes%20for%20life/
 import 'package:social_support/screens/lessons%20(connected)/takes%20for%20life/take_details_screen.dart';
 import 'package:social_support/screens/lessons%20(connected)/takes%20for%20life/takes_list_screen.dart';
 import 'package:social_support/screens/login/login_screen.dart';
+import 'package:social_support/screens/logo_screen.dart';
 import 'package:social_support/screens/personal%20problems%20and%20solutions/personal_problem_details_screen.dart';
 import 'package:social_support/screens/rate_week_screen.dart';
 import 'package:social_support/screens/students%20reports/student_report_screen.dart';
@@ -107,7 +108,7 @@ class App extends StatelessWidget {
               ),
             ),
             routes: {
-              '/' : (_) => LoginScreen(),
+              '/' : (_) => LogoScreen(),
               // '/' : (_) => HomeScreen(),
               HomeScreen.routeName: (_) => HomeScreen(),
               MainProblemsScreen.screenRoute : (_) => MainProblemsScreen(),
@@ -133,6 +134,7 @@ class App extends StatelessWidget {
               TakeDetailsScreen.screenRoute: (_) => const TakeDetailsScreen(),
               LessonDetailsScreen.screenRoute: (_) => const LessonDetailsScreen(),
               ImprovementDetailsScreen.screenRoute: (_) => const ImprovementDetailsScreen(),
+              LogoScreen.screenRoute: (_) => LogoScreen(),
             },
           );
         },
