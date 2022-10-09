@@ -124,9 +124,12 @@ class _RateWeekScreenState extends State<RateWeekScreen> {
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         child: CircleAvatar(
-          child: Text(
-            number.toString(),
-            style: TextStyle(fontSize: 20.sp, color: Colors.black),
+          // Fitted Box fixes bug on tablets where 10 looks like 1q
+          child: FittedBox(
+            child: Text(
+              number.toString(),
+              style: TextStyle(fontSize: 20.sp, color: Colors.black),
+            ),
           ),
           backgroundColor: selected ? Colors.amber : Colors.white,
         ),
